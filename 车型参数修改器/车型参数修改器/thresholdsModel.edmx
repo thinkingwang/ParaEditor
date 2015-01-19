@@ -1,0 +1,673 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="tycho_kcModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="tycho_kcModelStoreContainer">
+          <EntitySet Name="CarList" EntityType="tycho_kcModel.Store.CarList" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CRH_wheel" EntityType="tycho_kcModel.Store.CRH_wheel" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Detect" EntityType="tycho_kcModel.Store.Detect" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ProfileDetectResult" EntityType="tycho_kcModel.Store.ProfileDetectResult" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ProfileDetectResult_real" EntityType="tycho_kcModel.Store.ProfileDetectResult_real" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="thresholds" EntityType="tycho_kcModel.Store.thresholds" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TrainType" EntityType="tycho_kcModel.Store.TrainType" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_CarList_Detect" Association="tycho_kcModel.Store.FK_CarList_Detect">
+            <End Role="Detect" EntitySet="Detect" />
+            <End Role="CarList" EntitySet="CarList" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProfileDetectResult_Detect" Association="tycho_kcModel.Store.FK_ProfileDetectResult_Detect">
+            <End Role="Detect" EntitySet="Detect" />
+            <End Role="ProfileDetectResult" EntitySet="ProfileDetectResult" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProfileDetectResult_real_Detect" Association="tycho_kcModel.Store.FK_ProfileDetectResult_real_Detect">
+            <End Role="Detect" EntitySet="Detect" />
+            <End Role="ProfileDetectResult_real" EntitySet="ProfileDetectResult_real" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="CarList">
+          <Key>
+            <PropertyRef Name="testDateTime" />
+            <PropertyRef Name="posNo" />
+            <PropertyRef Name="carNo" />
+          </Key>
+          <Property Name="testDateTime" Type="datetime" Nullable="false" />
+          <Property Name="posNo" Type="tinyint" Nullable="false" />
+          <Property Name="carNo" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="carNo2" Type="varchar" MaxLength="20" />
+          <Property Name="direction" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CRH_wheel">
+          <Key>
+            <PropertyRef Name="trainType" />
+            <PropertyRef Name="axleNo" />
+            <PropertyRef Name="wheelNo" />
+          </Key>
+          <Property Name="trainType" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="axleNo" Type="tinyint" Nullable="false" />
+          <Property Name="wheelNo" Type="tinyint" Nullable="false" />
+          <Property Name="axlePos" Type="tinyint" Nullable="false" />
+          <Property Name="wheelPos" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Detect">
+          <Key>
+            <PropertyRef Name="testDateTime" />
+          </Key>
+          <Property Name="testDateTime" Type="datetime" Nullable="false" />
+          <Property Name="engNum" Type="varchar" MaxLength="50" />
+          <Property Name="engBNum" Type="varchar" MaxLength="50" />
+          <Property Name="engineDirection" Type="bit" Nullable="false" />
+          <Property Name="bugNum" Type="smallint" />
+          <Property Name="isView" Type="bit" />
+          <Property Name="inSpeed" Type="numeric" Precision="5" Scale="2" />
+          <Property Name="outSpeed" Type="numeric" Precision="5" Scale="2" />
+          <Property Name="waterTemp" Type="numeric" Precision="5" Scale="2" />
+          <Property Name="temperature" Type="numeric" Precision="5" Scale="2" />
+          <Property Name="liquidTemp" Type="numeric" Precision="5" Scale="2" />
+          <Property Name="arrayATemp" Type="numeric" Precision="5" Scale="2" />
+          <Property Name="arrayBTemp" Type="numeric" Precision="5" Scale="2" />
+          <Property Name="redWheelNum" Type="smallint" />
+          <Property Name="yellowWheelNum" Type="smallint" />
+          <Property Name="blueWheelNum" Type="smallint" />
+          <Property Name="greenWheelNum" Type="smallint" />
+          <Property Name="isValid" Type="tinyint" />
+          <Property Name="wheelSize" Type="numeric" Precision="6" Scale="2" />
+          <Property Name="wheelSizeB" Type="numeric" Precision="6" Scale="2" />
+          <Property Name="IsTypical" Type="bit" />
+          <Property Name="AxleNum" Type="smallint" />
+          <Property Name="scratchLevel3Num" Type="smallint" />
+          <Property Name="scratchLevel2Num" Type="smallint" />
+          <Property Name="scratchLevel1Num" Type="smallint" />
+          <Property Name="scratchNum" Type="smallint" />
+          <Property Name="M_LJ_Num" Type="smallint" />
+          <Property Name="M_TmMh_Num" Type="smallint" />
+          <Property Name="M_LyHd_Num" Type="smallint" />
+          <Property Name="M_LwHd_Num" Type="smallint" />
+          <Property Name="M_Ncj_Num" Type="smallint" />
+          <Property Name="outDateTime" Type="datetime" />
+          <Property Name="procUser" Type="varchar" MaxLength="50" />
+          <Property Name="M_LyGd_Num" Type="smallint" />
+          <Property Name="M_Qr_Num" Type="smallint" />
+          <Property Name="videoScratchNum" Type="smallint" />
+        </EntityType>
+        <EntityType Name="ProfileDetectResult">
+          <Key>
+            <PropertyRef Name="testDateTime" />
+            <PropertyRef Name="axleNo" />
+            <PropertyRef Name="wheelNo" />
+          </Key>
+          <Property Name="testDateTime" Type="datetime" Nullable="false" />
+          <Property Name="axleNo" Type="int" Nullable="false" />
+          <Property Name="wheelNo" Type="tinyint" Nullable="false" />
+          <Property Name="Lj" Type="numeric" Precision="5" Scale="1" />
+          <Property Name="TmMh" Type="numeric" Precision="5" Scale="1" />
+          <Property Name="LyHd" Type="numeric" Precision="5" Scale="1" />
+          <Property Name="LyGd" Type="numeric" Precision="5" Scale="1" />
+          <Property Name="LwHd" Type="numeric" Precision="5" Scale="1" />
+          <Property Name="LwHd2" Type="numeric" Precision="5" Scale="1" />
+          <Property Name="QR" Type="numeric" Precision="5" Scale="1" />
+          <Property Name="Ncj" Type="numeric" Precision="5" Scale="1" />
+          <Property Name="LjCha_Zhou" Type="numeric" Precision="5" Scale="1" />
+          <Property Name="LjCha_ZXJ" Type="numeric" Precision="5" Scale="1" />
+          <Property Name="LjCha_Che" Type="numeric" Precision="5" Scale="1" />
+          <Property Name="LjCha_Bz" Type="numeric" Precision="5" Scale="1" />
+          <Property Name="xmlFile" Type="varchar" MaxLength="50" />
+          <Property Name="Level_lj" Type="tinyint" />
+          <Property Name="Level_tmmh" Type="tinyint" />
+          <Property Name="Level_lyhd" Type="tinyint" />
+          <Property Name="Level_lwhd" Type="tinyint" />
+          <Property Name="Level_ncj" Type="tinyint" />
+          <Property Name="Level_lygd" Type="tinyint" />
+          <Property Name="Level_qr" Type="tinyint" />
+          <Property Name="Level_LjCha_Zhou" Type="tinyint" />
+          <Property Name="Level_LjCha_ZXJ" Type="tinyint" />
+          <Property Name="Level_LjCha_Che" Type="tinyint" />
+          <Property Name="Level_LjCha_Bz" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="ProfileDetectResult_real">
+          <Key>
+            <PropertyRef Name="testDateTime" />
+            <PropertyRef Name="axleNo" />
+            <PropertyRef Name="wheelNo" />
+          </Key>
+          <Property Name="testDateTime" Type="datetime" Nullable="false" />
+          <Property Name="axleNo" Type="int" Nullable="false" />
+          <Property Name="wheelNo" Type="tinyint" Nullable="false" />
+          <Property Name="Lj" Type="numeric" Precision="5" Scale="1" />
+          <Property Name="TmMh" Type="numeric" Precision="5" Scale="1" />
+          <Property Name="LyHd" Type="numeric" Precision="5" Scale="1" />
+          <Property Name="LyGd" Type="numeric" Precision="5" Scale="1" />
+          <Property Name="LwHd" Type="numeric" Precision="5" Scale="1" />
+          <Property Name="LwHd2" Type="numeric" Precision="5" Scale="1" />
+          <Property Name="QR" Type="numeric" Precision="5" Scale="1" />
+          <Property Name="Ncj" Type="numeric" Precision="5" Scale="1" />
+          <Property Name="LjCha_Zhou" Type="numeric" Precision="5" Scale="1" />
+          <Property Name="LjCha_ZXJ" Type="numeric" Precision="5" Scale="1" />
+          <Property Name="LjCha_Che" Type="numeric" Precision="5" Scale="1" />
+          <Property Name="LjCha_Bz" Type="numeric" Precision="5" Scale="1" />
+          <Property Name="xmlFile" Type="varchar" MaxLength="50" />
+          <Property Name="pos" Type="tinyint" />
+          <Property Name="carPos" Type="tinyint" />
+          <Property Name="carNo" Type="varchar" MaxLength="20" />
+          <Property Name="Lj_user" Type="numeric" Precision="5" Scale="1" />
+          <Property Name="Lj_AVG" Type="numeric" Precision="5" Scale="1" />
+          <Property Name="LwHd2_AVG" Type="numeric" Precision="5" Scale="1" />
+        </EntityType>
+        <EntityType Name="thresholds">
+          <Key>
+            <PropertyRef Name="trainType" />
+            <PropertyRef Name="name" />
+          </Key>
+          <Property Name="trainType" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="name" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="standard" Type="numeric" Precision="8" Scale="2" />
+          <Property Name="up_level3" Type="numeric" Precision="8" Scale="2" />
+          <Property Name="up_level2" Type="numeric" Precision="8" Scale="2" />
+          <Property Name="up_level1" Type="numeric" Precision="8" Scale="2" />
+          <Property Name="low_level3" Type="numeric" Precision="8" Scale="2" />
+          <Property Name="low_level2" Type="numeric" Precision="8" Scale="2" />
+          <Property Name="low_level1" Type="numeric" Precision="8" Scale="2" />
+          <Property Name="desc" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TrainType">
+          <Key>
+            <PropertyRef Name="trainNoFrom" />
+            <PropertyRef Name="trainNoTo" />
+          </Key>
+          <Property Name="trainType" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="trainNoFrom" Type="int" Nullable="false" />
+          <Property Name="trainNoTo" Type="int" Nullable="false" />
+          <Property Name="format" Type="varchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <Association Name="FK_CarList_Detect">
+          <End Role="Detect" Type="tycho_kcModel.Store.Detect" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CarList" Type="tycho_kcModel.Store.CarList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Detect">
+              <PropertyRef Name="testDateTime" />
+            </Principal>
+            <Dependent Role="CarList">
+              <PropertyRef Name="testDateTime" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProfileDetectResult_Detect">
+          <End Role="Detect" Type="tycho_kcModel.Store.Detect" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ProfileDetectResult" Type="tycho_kcModel.Store.ProfileDetectResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Detect">
+              <PropertyRef Name="testDateTime" />
+            </Principal>
+            <Dependent Role="ProfileDetectResult">
+              <PropertyRef Name="testDateTime" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProfileDetectResult_real_Detect">
+          <End Role="Detect" Type="tycho_kcModel.Store.Detect" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ProfileDetectResult_real" Type="tycho_kcModel.Store.ProfileDetectResult_real" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Detect">
+              <PropertyRef Name="testDateTime" />
+            </Principal>
+            <Dependent Role="ProfileDetectResult_real">
+              <PropertyRef Name="testDateTime" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="CopyCarNoDestSource" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="destTestTime" Type="datetime" Mode="In" />
+          <Parameter Name="sourceTestTime" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="proc_BatchDatafillByLastTime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="in_ThisTestDateTime" Type="datetime" Mode="In" />
+          <Parameter Name="in_LastTestDateTime" Type="datetime" Mode="In" />
+          <Parameter Name="out_Result" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="Profile" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="testTime" Type="datetime" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="tycho_kcModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="thresholdsContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="thresholds" EntityType="tycho_kcModel.thresholds" />
+          <EntitySet Name="CRH_wheel" EntityType="tycho_kcModel.CRH_wheel" />
+          <EntitySet Name="Detect" EntityType="tycho_kcModel.Detect" />
+          <EntitySet Name="ProfileDetectResult" EntityType="tycho_kcModel.ProfileDetectResult" />
+          <EntitySet Name="ProfileDetectResult_real" EntityType="tycho_kcModel.ProfileDetectResult_real" />
+          <EntitySet Name="TrainType" EntityType="tycho_kcModel.TrainType" />
+          <AssociationSet Name="FK_ProfileDetectResult_Detect" Association="tycho_kcModel.FK_ProfileDetectResult_Detect">
+            <End Role="Detect" EntitySet="Detect" />
+            <End Role="ProfileDetectResult" EntitySet="ProfileDetectResult" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProfileDetectResult_real_Detect" Association="tycho_kcModel.FK_ProfileDetectResult_real_Detect">
+            <End Role="Detect" EntitySet="Detect" />
+            <End Role="ProfileDetectResult_real" EntitySet="ProfileDetectResult_real" />
+          </AssociationSet>
+          <FunctionImport Name="CopyCarNoDestSource">
+            <Parameter Name="destTestTime" Mode="In" Type="DateTime" />
+            <Parameter Name="sourceTestTime" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="Profile">
+          <Parameter Name="testTime" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="proc_BatchDatafillByLastTime">
+            <Parameter Name="in_ThisTestDateTime" Mode="In" Type="DateTime" />
+            <Parameter Name="in_LastTestDateTime" Mode="In" Type="DateTime" />
+            <Parameter Name="out_Result" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="CarList" EntityType="tycho_kcModel.CarList" />
+          <AssociationSet Name="FK_CarList_Detect" Association="tycho_kcModel.FK_CarList_Detect">
+            <End Role="Detect" EntitySet="Detect" />
+            <End Role="CarList" EntitySet="CarList" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="thresholds">
+          <Key>
+            <PropertyRef Name="trainType" />
+            <PropertyRef Name="name" />
+          </Key>
+          <Property Name="trainType" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="standard" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="up_level3" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="up_level2" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="up_level1" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="low_level3" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="low_level2" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="low_level1" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="desc" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="CRH_wheel">
+          <Key>
+            <PropertyRef Name="trainType" />
+            <PropertyRef Name="axleNo" />
+            <PropertyRef Name="wheelNo" />
+          </Key>
+          <Property Type="String" Name="trainType" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Byte" Name="axleNo" Nullable="false" />
+          <Property Type="Byte" Name="wheelNo" Nullable="false" />
+          <Property Type="Byte" Name="axlePos" Nullable="false" />
+          <Property Type="Byte" Name="wheelPos" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Detect">
+          <Key>
+            <PropertyRef Name="testDateTime" />
+          </Key>
+          <Property Type="DateTime" Name="testDateTime" Nullable="false" />
+          <Property Type="String" Name="engNum" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="engBNum" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="engineDirection" Nullable="false" />
+          <Property Type="Int16" Name="bugNum" />
+          <Property Type="Boolean" Name="isView" />
+          <Property Type="Decimal" Name="inSpeed" Precision="5" Scale="2" />
+          <Property Type="Decimal" Name="outSpeed" Precision="5" Scale="2" />
+          <Property Type="Decimal" Name="waterTemp" Precision="5" Scale="2" />
+          <Property Type="Decimal" Name="temperature" Precision="5" Scale="2" />
+          <Property Type="Decimal" Name="liquidTemp" Precision="5" Scale="2" />
+          <Property Type="Decimal" Name="arrayATemp" Precision="5" Scale="2" />
+          <Property Type="Decimal" Name="arrayBTemp" Precision="5" Scale="2" />
+          <Property Type="Int16" Name="redWheelNum" />
+          <Property Type="Int16" Name="yellowWheelNum" />
+          <Property Type="Int16" Name="blueWheelNum" />
+          <Property Type="Int16" Name="greenWheelNum" />
+          <Property Type="Byte" Name="isValid" />
+          <Property Type="Decimal" Name="wheelSize" Precision="6" Scale="2" />
+          <Property Type="Decimal" Name="wheelSizeB" Precision="6" Scale="2" />
+          <Property Type="Boolean" Name="IsTypical" />
+          <Property Type="Int16" Name="AxleNum" />
+          <Property Type="Int16" Name="scratchLevel3Num" />
+          <Property Type="Int16" Name="scratchLevel2Num" />
+          <Property Type="Int16" Name="scratchLevel1Num" />
+          <Property Type="Int16" Name="scratchNum" />
+          <Property Type="Int16" Name="M_LJ_Num" />
+          <Property Type="Int16" Name="M_TmMh_Num" />
+          <Property Type="Int16" Name="M_LyHd_Num" />
+          <Property Type="Int16" Name="M_LwHd_Num" />
+          <Property Type="Int16" Name="M_Ncj_Num" />
+          <Property Type="DateTime" Name="outDateTime" />
+          <Property Type="String" Name="procUser" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int16" Name="M_LyGd_Num" />
+          <Property Type="Int16" Name="M_Qr_Num" />
+          <Property Type="Int16" Name="videoScratchNum" />
+          <NavigationProperty Name="ProfileDetectResult" Relationship="tycho_kcModel.FK_ProfileDetectResult_Detect" FromRole="Detect" ToRole="ProfileDetectResult" />
+          <NavigationProperty Name="ProfileDetectResult_real" Relationship="tycho_kcModel.FK_ProfileDetectResult_real_Detect" FromRole="Detect" ToRole="ProfileDetectResult_real" />
+          <NavigationProperty Name="CarList" Relationship="tycho_kcModel.FK_CarList_Detect" FromRole="Detect" ToRole="CarList" />
+        </EntityType>
+        <EntityType Name="ProfileDetectResult">
+          <Key>
+            <PropertyRef Name="testDateTime" />
+            <PropertyRef Name="axleNo" />
+            <PropertyRef Name="wheelNo" />
+          </Key>
+          <Property Type="DateTime" Name="testDateTime" Nullable="false" />
+          <Property Type="Int32" Name="axleNo" Nullable="false" />
+          <Property Type="Byte" Name="wheelNo" Nullable="false" />
+          <Property Type="Decimal" Name="Lj" Precision="5" Scale="1" />
+          <Property Type="Decimal" Name="TmMh" Precision="5" Scale="1" />
+          <Property Type="Decimal" Name="LyHd" Precision="5" Scale="1" />
+          <Property Type="Decimal" Name="LyGd" Precision="5" Scale="1" />
+          <Property Type="Decimal" Name="LwHd" Precision="5" Scale="1" />
+          <Property Type="Decimal" Name="LwHd2" Precision="5" Scale="1" />
+          <Property Type="Decimal" Name="QR" Precision="5" Scale="1" />
+          <Property Type="Decimal" Name="Ncj" Precision="5" Scale="1" />
+          <Property Type="Decimal" Name="LjCha_Zhou" Precision="5" Scale="1" />
+          <Property Type="Decimal" Name="LjCha_ZXJ" Precision="5" Scale="1" />
+          <Property Type="Decimal" Name="LjCha_Che" Precision="5" Scale="1" />
+          <Property Type="Decimal" Name="LjCha_Bz" Precision="5" Scale="1" />
+          <Property Type="String" Name="xmlFile" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Byte" Name="Level_lj" />
+          <Property Type="Byte" Name="Level_tmmh" />
+          <Property Type="Byte" Name="Level_lyhd" />
+          <Property Type="Byte" Name="Level_lwhd" />
+          <Property Type="Byte" Name="Level_ncj" />
+          <Property Type="Byte" Name="Level_lygd" />
+          <Property Type="Byte" Name="Level_qr" />
+          <Property Type="Byte" Name="Level_LjCha_Zhou" />
+          <Property Type="Byte" Name="Level_LjCha_ZXJ" />
+          <Property Type="Byte" Name="Level_LjCha_Che" />
+          <Property Type="Byte" Name="Level_LjCha_Bz" />
+          <NavigationProperty Name="Detect" Relationship="tycho_kcModel.FK_ProfileDetectResult_Detect" FromRole="ProfileDetectResult" ToRole="Detect" />
+        </EntityType>
+        <EntityType Name="ProfileDetectResult_real">
+          <Key>
+            <PropertyRef Name="testDateTime" />
+            <PropertyRef Name="axleNo" />
+            <PropertyRef Name="wheelNo" />
+          </Key>
+          <Property Type="DateTime" Name="testDateTime" Nullable="false" />
+          <Property Type="Int32" Name="axleNo" Nullable="false" />
+          <Property Type="Byte" Name="wheelNo" Nullable="false" />
+          <Property Type="Decimal" Name="Lj" Precision="5" Scale="1" />
+          <Property Type="Decimal" Name="TmMh" Precision="5" Scale="1" />
+          <Property Type="Decimal" Name="LyHd" Precision="5" Scale="1" />
+          <Property Type="Decimal" Name="LyGd" Precision="5" Scale="1" />
+          <Property Type="Decimal" Name="LwHd" Precision="5" Scale="1" />
+          <Property Type="Decimal" Name="LwHd2" Precision="5" Scale="1" />
+          <Property Type="Decimal" Name="QR" Precision="5" Scale="1" />
+          <Property Type="Decimal" Name="Ncj" Precision="5" Scale="1" />
+          <Property Type="Decimal" Name="LjCha_Zhou" Precision="5" Scale="1" />
+          <Property Type="Decimal" Name="LjCha_ZXJ" Precision="5" Scale="1" />
+          <Property Type="Decimal" Name="LjCha_Che" Precision="5" Scale="1" />
+          <Property Type="Decimal" Name="LjCha_Bz" Precision="5" Scale="1" />
+          <Property Type="String" Name="xmlFile" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Byte" Name="pos" />
+          <Property Type="Byte" Name="carPos" />
+          <Property Type="String" Name="carNo" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="Lj_user" Precision="5" Scale="1" />
+          <Property Type="Decimal" Name="Lj_AVG" Precision="5" Scale="1" />
+          <Property Type="Decimal" Name="LwHd2_AVG" Precision="5" Scale="1" />
+          <NavigationProperty Name="Detect" Relationship="tycho_kcModel.FK_ProfileDetectResult_real_Detect" FromRole="ProfileDetectResult_real" ToRole="Detect" />
+        </EntityType>
+        <EntityType Name="TrainType">
+          <Key>
+            <PropertyRef Name="trainNoFrom" />
+            <PropertyRef Name="trainNoTo" />
+          </Key>
+          <Property Type="String" Name="trainType1" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="trainNoFrom" Nullable="false" />
+          <Property Type="Int32" Name="trainNoTo" Nullable="false" />
+          <Property Type="String" Name="format" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_ProfileDetectResult_Detect">
+          <End Type="tycho_kcModel.Detect" Role="Detect" Multiplicity="1" />
+          <End Type="tycho_kcModel.ProfileDetectResult" Role="ProfileDetectResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Detect">
+              <PropertyRef Name="testDateTime" />
+            </Principal>
+            <Dependent Role="ProfileDetectResult">
+              <PropertyRef Name="testDateTime" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProfileDetectResult_real_Detect">
+          <End Type="tycho_kcModel.Detect" Role="Detect" Multiplicity="1" />
+          <End Type="tycho_kcModel.ProfileDetectResult_real" Role="ProfileDetectResult_real" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Detect">
+              <PropertyRef Name="testDateTime" />
+            </Principal>
+            <Dependent Role="ProfileDetectResult_real">
+              <PropertyRef Name="testDateTime" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CarList">
+          <Key>
+            <PropertyRef Name="testDateTime" />
+            <PropertyRef Name="posNo" />
+            <PropertyRef Name="carNo" />
+          </Key>
+          <Property Type="DateTime" Name="testDateTime" Nullable="false" />
+          <Property Type="Byte" Name="posNo" Nullable="false" />
+          <Property Type="String" Name="carNo" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="carNo2" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="direction" Nullable="false" />
+          <NavigationProperty Name="Detect" Relationship="tycho_kcModel.FK_CarList_Detect" FromRole="CarList" ToRole="Detect" />
+        </EntityType>
+        <Association Name="FK_CarList_Detect">
+          <End Type="tycho_kcModel.Detect" Role="Detect" Multiplicity="1" />
+          <End Type="tycho_kcModel.CarList" Role="CarList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Detect">
+              <PropertyRef Name="testDateTime" />
+            </Principal>
+            <Dependent Role="CarList">
+              <PropertyRef Name="testDateTime" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="tycho_kcModelStoreContainer" CdmEntityContainer="thresholdsContext">
+          <EntitySetMapping Name="thresholds">
+            <EntityTypeMapping TypeName="tycho_kcModel.thresholds">
+              <MappingFragment StoreEntitySet="thresholds">
+                <ScalarProperty Name="trainType" ColumnName="trainType" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="standard" ColumnName="standard" />
+                <ScalarProperty Name="up_level3" ColumnName="up_level3" />
+                <ScalarProperty Name="up_level2" ColumnName="up_level2" />
+                <ScalarProperty Name="up_level1" ColumnName="up_level1" />
+                <ScalarProperty Name="low_level3" ColumnName="low_level3" />
+                <ScalarProperty Name="low_level2" ColumnName="low_level2" />
+                <ScalarProperty Name="low_level1" ColumnName="low_level1" />
+                <ScalarProperty Name="desc" ColumnName="desc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CRH_wheel">
+            <EntityTypeMapping TypeName="tycho_kcModel.CRH_wheel">
+              <MappingFragment StoreEntitySet="CRH_wheel">
+                <ScalarProperty Name="wheelPos" ColumnName="wheelPos" />
+                <ScalarProperty Name="axlePos" ColumnName="axlePos" />
+                <ScalarProperty Name="wheelNo" ColumnName="wheelNo" />
+                <ScalarProperty Name="axleNo" ColumnName="axleNo" />
+                <ScalarProperty Name="trainType" ColumnName="trainType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Detect">
+            <EntityTypeMapping TypeName="tycho_kcModel.Detect">
+              <MappingFragment StoreEntitySet="Detect">
+                <ScalarProperty Name="videoScratchNum" ColumnName="videoScratchNum" />
+                <ScalarProperty Name="M_Qr_Num" ColumnName="M_Qr_Num" />
+                <ScalarProperty Name="M_LyGd_Num" ColumnName="M_LyGd_Num" />
+                <ScalarProperty Name="procUser" ColumnName="procUser" />
+                <ScalarProperty Name="outDateTime" ColumnName="outDateTime" />
+                <ScalarProperty Name="M_Ncj_Num" ColumnName="M_Ncj_Num" />
+                <ScalarProperty Name="M_LwHd_Num" ColumnName="M_LwHd_Num" />
+                <ScalarProperty Name="M_LyHd_Num" ColumnName="M_LyHd_Num" />
+                <ScalarProperty Name="M_TmMh_Num" ColumnName="M_TmMh_Num" />
+                <ScalarProperty Name="M_LJ_Num" ColumnName="M_LJ_Num" />
+                <ScalarProperty Name="scratchNum" ColumnName="scratchNum" />
+                <ScalarProperty Name="scratchLevel1Num" ColumnName="scratchLevel1Num" />
+                <ScalarProperty Name="scratchLevel2Num" ColumnName="scratchLevel2Num" />
+                <ScalarProperty Name="scratchLevel3Num" ColumnName="scratchLevel3Num" />
+                <ScalarProperty Name="AxleNum" ColumnName="AxleNum" />
+                <ScalarProperty Name="IsTypical" ColumnName="IsTypical" />
+                <ScalarProperty Name="wheelSizeB" ColumnName="wheelSizeB" />
+                <ScalarProperty Name="wheelSize" ColumnName="wheelSize" />
+                <ScalarProperty Name="isValid" ColumnName="isValid" />
+                <ScalarProperty Name="greenWheelNum" ColumnName="greenWheelNum" />
+                <ScalarProperty Name="blueWheelNum" ColumnName="blueWheelNum" />
+                <ScalarProperty Name="yellowWheelNum" ColumnName="yellowWheelNum" />
+                <ScalarProperty Name="redWheelNum" ColumnName="redWheelNum" />
+                <ScalarProperty Name="arrayBTemp" ColumnName="arrayBTemp" />
+                <ScalarProperty Name="arrayATemp" ColumnName="arrayATemp" />
+                <ScalarProperty Name="liquidTemp" ColumnName="liquidTemp" />
+                <ScalarProperty Name="temperature" ColumnName="temperature" />
+                <ScalarProperty Name="waterTemp" ColumnName="waterTemp" />
+                <ScalarProperty Name="outSpeed" ColumnName="outSpeed" />
+                <ScalarProperty Name="inSpeed" ColumnName="inSpeed" />
+                <ScalarProperty Name="isView" ColumnName="isView" />
+                <ScalarProperty Name="bugNum" ColumnName="bugNum" />
+                <ScalarProperty Name="engineDirection" ColumnName="engineDirection" />
+                <ScalarProperty Name="engBNum" ColumnName="engBNum" />
+                <ScalarProperty Name="engNum" ColumnName="engNum" />
+                <ScalarProperty Name="testDateTime" ColumnName="testDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProfileDetectResult">
+            <EntityTypeMapping TypeName="tycho_kcModel.ProfileDetectResult">
+              <MappingFragment StoreEntitySet="ProfileDetectResult">
+                <ScalarProperty Name="Level_LjCha_Bz" ColumnName="Level_LjCha_Bz" />
+                <ScalarProperty Name="Level_LjCha_Che" ColumnName="Level_LjCha_Che" />
+                <ScalarProperty Name="Level_LjCha_ZXJ" ColumnName="Level_LjCha_ZXJ" />
+                <ScalarProperty Name="Level_LjCha_Zhou" ColumnName="Level_LjCha_Zhou" />
+                <ScalarProperty Name="Level_qr" ColumnName="Level_qr" />
+                <ScalarProperty Name="Level_lygd" ColumnName="Level_lygd" />
+                <ScalarProperty Name="Level_ncj" ColumnName="Level_ncj" />
+                <ScalarProperty Name="Level_lwhd" ColumnName="Level_lwhd" />
+                <ScalarProperty Name="Level_lyhd" ColumnName="Level_lyhd" />
+                <ScalarProperty Name="Level_tmmh" ColumnName="Level_tmmh" />
+                <ScalarProperty Name="Level_lj" ColumnName="Level_lj" />
+                <ScalarProperty Name="xmlFile" ColumnName="xmlFile" />
+                <ScalarProperty Name="LjCha_Bz" ColumnName="LjCha_Bz" />
+                <ScalarProperty Name="LjCha_Che" ColumnName="LjCha_Che" />
+                <ScalarProperty Name="LjCha_ZXJ" ColumnName="LjCha_ZXJ" />
+                <ScalarProperty Name="LjCha_Zhou" ColumnName="LjCha_Zhou" />
+                <ScalarProperty Name="Ncj" ColumnName="Ncj" />
+                <ScalarProperty Name="QR" ColumnName="QR" />
+                <ScalarProperty Name="LwHd2" ColumnName="LwHd2" />
+                <ScalarProperty Name="LwHd" ColumnName="LwHd" />
+                <ScalarProperty Name="LyGd" ColumnName="LyGd" />
+                <ScalarProperty Name="LyHd" ColumnName="LyHd" />
+                <ScalarProperty Name="TmMh" ColumnName="TmMh" />
+                <ScalarProperty Name="Lj" ColumnName="Lj" />
+                <ScalarProperty Name="wheelNo" ColumnName="wheelNo" />
+                <ScalarProperty Name="axleNo" ColumnName="axleNo" />
+                <ScalarProperty Name="testDateTime" ColumnName="testDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProfileDetectResult_real">
+            <EntityTypeMapping TypeName="tycho_kcModel.ProfileDetectResult_real">
+              <MappingFragment StoreEntitySet="ProfileDetectResult_real">
+                <ScalarProperty Name="LwHd2_AVG" ColumnName="LwHd2_AVG" />
+                <ScalarProperty Name="Lj_AVG" ColumnName="Lj_AVG" />
+                <ScalarProperty Name="Lj_user" ColumnName="Lj_user" />
+                <ScalarProperty Name="carNo" ColumnName="carNo" />
+                <ScalarProperty Name="carPos" ColumnName="carPos" />
+                <ScalarProperty Name="pos" ColumnName="pos" />
+                <ScalarProperty Name="xmlFile" ColumnName="xmlFile" />
+                <ScalarProperty Name="LjCha_Bz" ColumnName="LjCha_Bz" />
+                <ScalarProperty Name="LjCha_Che" ColumnName="LjCha_Che" />
+                <ScalarProperty Name="LjCha_ZXJ" ColumnName="LjCha_ZXJ" />
+                <ScalarProperty Name="LjCha_Zhou" ColumnName="LjCha_Zhou" />
+                <ScalarProperty Name="Ncj" ColumnName="Ncj" />
+                <ScalarProperty Name="QR" ColumnName="QR" />
+                <ScalarProperty Name="LwHd2" ColumnName="LwHd2" />
+                <ScalarProperty Name="LwHd" ColumnName="LwHd" />
+                <ScalarProperty Name="LyGd" ColumnName="LyGd" />
+                <ScalarProperty Name="LyHd" ColumnName="LyHd" />
+                <ScalarProperty Name="TmMh" ColumnName="TmMh" />
+                <ScalarProperty Name="Lj" ColumnName="Lj" />
+                <ScalarProperty Name="wheelNo" ColumnName="wheelNo" />
+                <ScalarProperty Name="axleNo" ColumnName="axleNo" />
+                <ScalarProperty Name="testDateTime" ColumnName="testDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TrainType">
+            <EntityTypeMapping TypeName="tycho_kcModel.TrainType">
+              <MappingFragment StoreEntitySet="TrainType">
+                <ScalarProperty Name="format" ColumnName="format" />
+                <ScalarProperty Name="trainNoTo" ColumnName="trainNoTo" />
+                <ScalarProperty Name="trainNoFrom" ColumnName="trainNoFrom" />
+                <ScalarProperty Name="trainType1" ColumnName="trainType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="CopyCarNoDestSource" FunctionName="tycho_kcModel.Store.CopyCarNoDestSource" />
+          <FunctionImportMapping FunctionImportName="Profile" FunctionName="tycho_kcModel.Store.Profile" />
+          <FunctionImportMapping FunctionImportName="proc_BatchDatafillByLastTime" FunctionName="tycho_kcModel.Store.proc_BatchDatafillByLastTime" />
+          <EntitySetMapping Name="CarList">
+            <EntityTypeMapping TypeName="tycho_kcModel.CarList">
+              <MappingFragment StoreEntitySet="CarList">
+                <ScalarProperty Name="direction" ColumnName="direction" />
+                <ScalarProperty Name="carNo2" ColumnName="carNo2" />
+                <ScalarProperty Name="carNo" ColumnName="carNo" />
+                <ScalarProperty Name="posNo" ColumnName="posNo" />
+                <ScalarProperty Name="testDateTime" ColumnName="testDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="thresholdsModel" ZoomLevel="102">
+        <EntityTypeShape EntityType="tycho_kcModel.thresholds" Width="1.5" PointX="0.75" PointY="0.75" Height="2.9251310221354165" IsExpanded="true" />
+        <EntityTypeShape EntityType="tycho_kcModel.CRH_wheel" Width="1.5" PointX="3.375" PointY="0.75" Height="1.9700325520833335" />
+        <EntityTypeShape EntityType="tycho_kcModel.Detect" Width="1.5" PointX="2.875" PointY="4.25" Height="8.2736824544270817" />
+        <EntityTypeShape EntityType="tycho_kcModel.ProfileDetectResult" Width="1.875" PointX="5.125" PointY="4.375" Height="6.3634855143229156" />
+        <EntityTypeShape EntityType="tycho_kcModel.ProfileDetectResult_real" Width="1.5" PointX="0.875" PointY="7.375" Height="5.4083870442708335" />
+        <EntityTypeShape EntityType="tycho_kcModel.TrainType" Width="1.5" PointX="0.75" PointY="4.75" Height="1.7790128580729174" />
+        <AssociationConnector Association="tycho_kcModel.FK_ProfileDetectResult_Detect" >
+          <ConnectorPoint PointX="4.375" PointY="7.5567427571614578" />
+          <ConnectorPoint PointX="5.125" PointY="7.5567427571614578" />
+        </AssociationConnector>
+        <AssociationConnector Association="tycho_kcModel.FK_ProfileDetectResult_real_Detect" >
+          <ConnectorPoint PointX="2.875" PointY="10.04485107421875" />
+          <ConnectorPoint PointX="2.375" PointY="10.04485107421875" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="tycho_kcModel.CarList" Width="1.5" PointX="5.125" PointY="12.375" Height="2.1610522460937496" />
+        <AssociationConnector Association="tycho_kcModel.FK_CarList_Detect" >
+          <ConnectorPoint PointX="4.375" PointY="12.54485107421875" />
+          <ConnectorPoint PointX="5.125" PointY="12.54485107421875" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

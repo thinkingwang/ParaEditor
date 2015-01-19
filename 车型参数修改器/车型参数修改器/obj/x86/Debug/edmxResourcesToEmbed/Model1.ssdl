@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="thresholdsModel1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="thresholdsModel1StoreContainer">
+    <EntitySet Name="thresholds" EntityType="thresholdsModel1.Store.thresholds" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="thresholds">
+    <Key>
+      <PropertyRef Name="trainType" />
+      <PropertyRef Name="name" />
+    </Key>
+    <Property Name="trainType" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="name" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="standard" Type="numeric" Precision="8" Scale="2" />
+    <Property Name="up_level3" Type="numeric" Precision="8" Scale="2" />
+    <Property Name="up_level2" Type="numeric" Precision="8" Scale="2" />
+    <Property Name="up_level1" Type="numeric" Precision="8" Scale="2" />
+    <Property Name="low_level3" Type="numeric" Precision="8" Scale="2" />
+    <Property Name="low_level2" Type="numeric" Precision="8" Scale="2" />
+    <Property Name="low_level1" Type="numeric" Precision="8" Scale="2" />
+    <Property Name="desc" Type="varchar" MaxLength="50" />
+  </EntityType>
+</Schema>

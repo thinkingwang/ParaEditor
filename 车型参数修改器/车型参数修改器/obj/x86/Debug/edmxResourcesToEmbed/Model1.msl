@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="thresholdsModel1StoreContainer" CdmEntityContainer="thresholdsContext1">
+    <EntitySetMapping Name="thresholds">
+      <EntityTypeMapping TypeName="thresholdsModel1.thresholds">
+        <MappingFragment StoreEntitySet="thresholds">
+          <ScalarProperty Name="trainType" ColumnName="trainType" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="standard" ColumnName="standard" />
+          <ScalarProperty Name="up_level3" ColumnName="up_level3" />
+          <ScalarProperty Name="up_level2" ColumnName="up_level2" />
+          <ScalarProperty Name="up_level1" ColumnName="up_level1" />
+          <ScalarProperty Name="low_level3" ColumnName="low_level3" />
+          <ScalarProperty Name="low_level2" ColumnName="low_level2" />
+          <ScalarProperty Name="low_level1" ColumnName="low_level1" />
+          <ScalarProperty Name="desc" ColumnName="desc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,13 @@
+E:\Project\车型参数修改器\车型参数修改器\obj\x86\Debug\车轮擦伤、外形尺寸报警门限配置工具.csproj.GenerateResource.Cache
+E:\Project\车型参数修改器\车型参数修改器\obj\x86\Debug\trainTypeEditor.Properties.Resources.resources
+E:\Project\车型参数修改器\车型参数修改器\obj\x86\Debug\车轮擦伤、外形尺寸报警门限配置工具.csprojResolveAssemblyReference.cache
+E:\Project\车型参数修改器\车型参数修改器\obj\x86\Debug\trainTypeEditor.Form.EditorLevel.resources
+E:\Project\车型参数修改器\车型参数修改器\obj\x86\Debug\trainTypeEditor.Form.Main_form.resources
+E:\Project\车型参数修改器\车型参数修改器\bin\Debug\动车数据综合配置器.exe.config
+E:\Project\车型参数修改器\车型参数修改器\bin\Debug\动车数据综合配置器.exe
+E:\Project\车型参数修改器\车型参数修改器\bin\Debug\动车数据综合配置器.pdb
+E:\Project\车型参数修改器\车型参数修改器\obj\x86\Debug\动车数据综合配置器.exe
+E:\Project\车型参数修改器\车型参数修改器\obj\x86\Debug\动车数据综合配置器.pdb
+E:\responsitory\ParaEditor\车型参数修改器\车型参数修改器\bin\Debug\动车数据综合配置器.exe.config
+E:\responsitory\ParaEditor\车型参数修改器\车型参数修改器\obj\x86\Debug\动车数据综合配置器.exe
+E:\responsitory\ParaEditor\车型参数修改器\车型参数修改器\obj\x86\Debug\动车数据综合配置器.pdb

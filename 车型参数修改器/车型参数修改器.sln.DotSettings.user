@@ -1,0 +1,9 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	
+	
+	
+	
+	<s:Boolean x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=C176F21AB1664B78BF94D49AD0EDB33D/@KeyIndexDefined">True</s:Boolean>
+	
+	<s:String x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=C176F21AB1664B78BF94D49AD0EDB33D/Name/@EntryValue">TestMethod1</s:String>
+	<s:String x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=C176F21AB1664B78BF94D49AD0EDB33D/XmlSerializedElements/@EntryValue">&lt;Session&gt;&lt;Elements&gt;&lt;UnitTestElement Provider="nUnit" Id="车型参数修改器测试.DataDaoTest" type="NUnitTestFixtureElement" Project="08FCD19C-4304-4C0F-9745-00F2DE80FCF9" /&gt;&lt;UnitTestElement Provider="nUnit" Id="车型参数修改器测试.DataDaoTest.GetDataTest" ParentId="车型参数修改器测试.DataDaoTest" type="NUnitTestElement" TypeName="车型参数修改器测试.DataDaoTest" MethodName="GetDataTest" Project="08FCD19C-4304-4C0F-9745-00F2DE80FCF9" /&gt;&lt;UnitTestElement Provider="nUnit" Id="车型参数修改器测试.DataDaoTest.GetThresholdsNoSaveAttribute" ParentId="车型参数修改器测试.DataDaoTest" type="NUnitTestElement" TypeName="车型参数修改器测试.DataDaoTest" MethodName="GetThresholdsNoSaveAttribute" Project="08FCD19C-4304-4C0F-9745-00F2DE80FCF9" /&gt;&lt;UnitTestElement Provider="nUnit" Id="车型参数修改器测试.DataDaoTest.GetUniuqeDataTest" ParentId="车型参数修改器测试.DataDaoTest" type="NUnitTestElement" TypeName="车型参数修改器测试.DataDaoTest" MethodName="GetUniuqeDataTest" Project="08FCD19C-4304-4C0F-9745-00F2DE80FCF9" /&gt;&lt;/Elements&gt;&lt;/Session&gt;</s:String></wpf:ResourceDictionary>

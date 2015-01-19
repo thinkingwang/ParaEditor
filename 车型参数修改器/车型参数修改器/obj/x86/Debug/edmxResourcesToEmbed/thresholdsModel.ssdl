@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="tycho_kcModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="tycho_kcModelStoreContainer">
+    <EntitySet Name="CarList" EntityType="tycho_kcModel.Store.CarList" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CRH_wheel" EntityType="tycho_kcModel.Store.CRH_wheel" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Detect" EntityType="tycho_kcModel.Store.Detect" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProfileDetectResult" EntityType="tycho_kcModel.Store.ProfileDetectResult" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProfileDetectResult_real" EntityType="tycho_kcModel.Store.ProfileDetectResult_real" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="thresholds" EntityType="tycho_kcModel.Store.thresholds" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TrainType" EntityType="tycho_kcModel.Store.TrainType" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_CarList_Detect" Association="tycho_kcModel.Store.FK_CarList_Detect">
+      <End Role="Detect" EntitySet="Detect" />
+      <End Role="CarList" EntitySet="CarList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProfileDetectResult_Detect" Association="tycho_kcModel.Store.FK_ProfileDetectResult_Detect">
+      <End Role="Detect" EntitySet="Detect" />
+      <End Role="ProfileDetectResult" EntitySet="ProfileDetectResult" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProfileDetectResult_real_Detect" Association="tycho_kcModel.Store.FK_ProfileDetectResult_real_Detect">
+      <End Role="Detect" EntitySet="Detect" />
+      <End Role="ProfileDetectResult_real" EntitySet="ProfileDetectResult_real" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="CarList">
+    <Key>
+      <PropertyRef Name="testDateTime" />
+      <PropertyRef Name="posNo" />
+      <PropertyRef Name="carNo" />
+    </Key>
+    <Property Name="testDateTime" Type="datetime" Nullable="false" />
+    <Property Name="posNo" Type="tinyint" Nullable="false" />
+    <Property Name="carNo" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="carNo2" Type="varchar" MaxLength="20" />
+    <Property Name="direction" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CRH_wheel">
+    <Key>
+      <PropertyRef Name="trainType" />
+      <PropertyRef Name="axleNo" />
+      <PropertyRef Name="wheelNo" />
+    </Key>
+    <Property Name="trainType" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="axleNo" Type="tinyint" Nullable="false" />
+    <Property Name="wheelNo" Type="tinyint" Nullable="false" />
+    <Property Name="axlePos" Type="tinyint" Nullable="false" />
+    <Property Name="wheelPos" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Detect">
+    <Key>
+      <PropertyRef Name="testDateTime" />
+    </Key>
+    <Property Name="testDateTime" Type="datetime" Nullable="false" />
+    <Property Name="engNum" Type="varchar" MaxLength="50" />
+    <Property Name="engBNum" Type="varchar" MaxLength="50" />
+    <Property Name="engineDirection" Type="bit" Nullable="false" />
+    <Property Name="bugNum" Type="smallint" />
+    <Property Name="isView" Type="bit" />
+    <Property Name="inSpeed" Type="numeric" Precision="5" Scale="2" />
+    <Property Name="outSpeed" Type="numeric" Precision="5" Scale="2" />
+    <Property Name="waterTemp" Type="numeric" Precision="5" Scale="2" />
+    <Property Name="temperature" Type="numeric" Precision="5" Scale="2" />
+    <Property Name="liquidTemp" Type="numeric" Precision="5" Scale="2" />
+    <Property Name="arrayATemp" Type="numeric" Precision="5" Scale="2" />
+    <Property Name="arrayBTemp" Type="numeric" Precision="5" Scale="2" />
+    <Property Name="redWheelNum" Type="smallint" />
+    <Property Name="yellowWheelNum" Type="smallint" />
+    <Property Name="blueWheelNum" Type="smallint" />
+    <Property Name="greenWheelNum" Type="smallint" />
+    <Property Name="isValid" Type="tinyint" />
+    <Property Name="wheelSize" Type="numeric" Precision="6" Scale="2" />
+    <Property Name="wheelSizeB" Type="numeric" Precision="6" Scale="2" />
+    <Property Name="IsTypical" Type="bit" />
+    <Property Name="AxleNum" Type="smallint" />
+    <Property Name="scratchLevel3Num" Type="smallint" />
+    <Property Name="scratchLevel2Num" Type="smallint" />
+    <Property Name="scratchLevel1Num" Type="smallint" />
+    <Property Name="scratchNum" Type="smallint" />
+    <Property Name="M_LJ_Num" Type="smallint" />
+    <Property Name="M_TmMh_Num" Type="smallint" />
+    <Property Name="M_LyHd_Num" Type="smallint" />
+    <Property Name="M_LwHd_Num" Type="smallint" />
+    <Property Name="M_Ncj_Num" Type="smallint" />
+    <Property Name="outDateTime" Type="datetime" />
+    <Property Name="procUser" Type="varchar" MaxLength="50" />
+    <Property Name="M_LyGd_Num" Type="smallint" />
+    <Property Name="M_Qr_Num" Type="smallint" />
+    <Property Name="videoScratchNum" Type="smallint" />
+  </EntityType>
+  <EntityType Name="ProfileDetectResult">
+    <Key>
+      <PropertyRef Name="testDateTime" />
+      <PropertyRef Name="axleNo" />
+      <PropertyRef Name="wheelNo" />
+    </Key>
+    <Property Name="testDateTime" Type="datetime" Nullable="false" />
+    <Property Name="axleNo" Type="int" Nullable="false" />
+    <Property Name="wheelNo" Type="tinyint" Nullable="false" />
+    <Property Name="Lj" Type="numeric" Precision="5" Scale="1" />
+    <Property Name="TmMh" Type="numeric" Precision="5" Scale="1" />
+    <Property Name="LyHd" Type="numeric" Precision="5" Scale="1" />
+    <Property Name="LyGd" Type="numeric" Precision="5" Scale="1" />
+    <Property Name="LwHd" Type="numeric" Precision="5" Scale="1" />
+    <Property Name="LwHd2" Type="numeric" Precision="5" Scale="1" />
+    <Property Name="QR" Type="numeric" Precision="5" Scale="1" />
+    <Property Name="Ncj" Type="numeric" Precision="5" Scale="1" />
+    <Property Name="LjCha_Zhou" Type="numeric" Precision="5" Scale="1" />
+    <Property Name="LjCha_ZXJ" Type="numeric" Precision="5" Scale="1" />
+    <Property Name="LjCha_Che" Type="numeric" Precision="5" Scale="1" />
+    <Property Name="LjCha_Bz" Type="numeric" Precision="5" Scale="1" />
+    <Property Name="xmlFile" Type="varchar" MaxLength="50" />
+    <Property Name="Level_lj" Type="tinyint" />
+    <Property Name="Level_tmmh" Type="tinyint" />
+    <Property Name="Level_lyhd" Type="tinyint" />
+    <Property Name="Level_lwhd" Type="tinyint" />
+    <Property Name="Level_ncj" Type="tinyint" />
+    <Property Name="Level_lygd" Type="tinyint" />
+    <Property Name="Level_qr" Type="tinyint" />
+    <Property Name="Level_LjCha_Zhou" Type="tinyint" />
+    <Property Name="Level_LjCha_ZXJ" Type="tinyint" />
+    <Property Name="Level_LjCha_Che" Type="tinyint" />
+    <Property Name="Level_LjCha_Bz" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="ProfileDetectResult_real">
+    <Key>
+      <PropertyRef Name="testDateTime" />
+      <PropertyRef Name="axleNo" />
+      <PropertyRef Name="wheelNo" />
+    </Key>
+    <Property Name="testDateTime" Type="datetime" Nullable="false" />
+    <Property Name="axleNo" Type="int" Nullable="false" />
+    <Property Name="wheelNo" Type="tinyint" Nullable="false" />
+    <Property Name="Lj" Type="numeric" Precision="5" Scale="1" />
+    <Property Name="TmMh" Type="numeric" Precision="5" Scale="1" />
+    <Property Name="LyHd" Type="numeric" Precision="5" Scale="1" />
+    <Property Name="LyGd" Type="numeric" Precision="5" Scale="1" />
+    <Property Name="LwHd" Type="numeric" Precision="5" Scale="1" />
+    <Property Name="LwHd2" Type="numeric" Precision="5" Scale="1" />
+    <Property Name="QR" Type="numeric" Precision="5" Scale="1" />
+    <Property Name="Ncj" Type="numeric" Precision="5" Scale="1" />
+    <Property Name="LjCha_Zhou" Type="numeric" Precision="5" Scale="1" />
+    <Property Name="LjCha_ZXJ" Type="numeric" Precision="5" Scale="1" />
+    <Property Name="LjCha_Che" Type="numeric" Precision="5" Scale="1" />
+    <Property Name="LjCha_Bz" Type="numeric" Precision="5" Scale="1" />
+    <Property Name="xmlFile" Type="varchar" MaxLength="50" />
+    <Property Name="pos" Type="tinyint" />
+    <Property Name="carPos" Type="tinyint" />
+    <Property Name="carNo" Type="varchar" MaxLength="20" />
+    <Property Name="Lj_user" Type="numeric" Precision="5" Scale="1" />
+    <Property Name="Lj_AVG" Type="numeric" Precision="5" Scale="1" />
+    <Property Name="LwHd2_AVG" Type="numeric" Precision="5" Scale="1" />
+  </EntityType>
+  <EntityType Name="thresholds">
+    <Key>
+      <PropertyRef Name="trainType" />
+      <PropertyRef Name="name" />
+    </Key>
+    <Property Name="trainType" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="name" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="standard" Type="numeric" Precision="8" Scale="2" />
+    <Property Name="up_level3" Type="numeric" Precision="8" Scale="2" />
+    <Property Name="up_level2" Type="numeric" Precision="8" Scale="2" />
+    <Property Name="up_level1" Type="numeric" Precision="8" Scale="2" />
+    <Property Name="low_level3" Type="numeric" Precision="8" Scale="2" />
+    <Property Name="low_level2" Type="numeric" Precision="8" Scale="2" />
+    <Property Name="low_level1" Type="numeric" Precision="8" Scale="2" />
+    <Property Name="desc" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TrainType">
+    <Key>
+      <PropertyRef Name="trainNoFrom" />
+      <PropertyRef Name="trainNoTo" />
+    </Key>
+    <Property Name="trainType" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="trainNoFrom" Type="int" Nullable="false" />
+    <Property Name="trainNoTo" Type="int" Nullable="false" />
+    <Property Name="format" Type="varchar" Nullable="false" MaxLength="20" />
+  </EntityType>
+  <Association Name="FK_CarList_Detect">
+    <End Role="Detect" Type="tycho_kcModel.Store.Detect" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CarList" Type="tycho_kcModel.Store.CarList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Detect">
+        <PropertyRef Name="testDateTime" />
+      </Principal>
+      <Dependent Role="CarList">
+        <PropertyRef Name="testDateTime" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProfileDetectResult_Detect">
+    <End Role="Detect" Type="tycho_kcModel.Store.Detect" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ProfileDetectResult" Type="tycho_kcModel.Store.ProfileDetectResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Detect">
+        <PropertyRef Name="testDateTime" />
+      </Principal>
+      <Dependent Role="ProfileDetectResult">
+        <PropertyRef Name="testDateTime" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProfileDetectResult_real_Detect">
+    <End Role="Detect" Type="tycho_kcModel.Store.Detect" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ProfileDetectResult_real" Type="tycho_kcModel.Store.ProfileDetectResult_real" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Detect">
+        <PropertyRef Name="testDateTime" />
+      </Principal>
+      <Dependent Role="ProfileDetectResult_real">
+        <PropertyRef Name="testDateTime" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="CopyCarNoDestSource" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="destTestTime" Type="datetime" Mode="In" />
+    <Parameter Name="sourceTestTime" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="proc_BatchDatafillByLastTime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="in_ThisTestDateTime" Type="datetime" Mode="In" />
+    <Parameter Name="in_LastTestDateTime" Type="datetime" Mode="In" />
+    <Parameter Name="out_Result" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="Profile" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="testTime" Type="datetime" Mode="In" />
+  </Function>
+</Schema>

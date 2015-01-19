@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="tycho_kcModelStoreContainer" CdmEntityContainer="thresholdsContext">
+    <EntitySetMapping Name="thresholds">
+      <EntityTypeMapping TypeName="tycho_kcModel.thresholds">
+        <MappingFragment StoreEntitySet="thresholds">
+          <ScalarProperty Name="trainType" ColumnName="trainType" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="standard" ColumnName="standard" />
+          <ScalarProperty Name="up_level3" ColumnName="up_level3" />
+          <ScalarProperty Name="up_level2" ColumnName="up_level2" />
+          <ScalarProperty Name="up_level1" ColumnName="up_level1" />
+          <ScalarProperty Name="low_level3" ColumnName="low_level3" />
+          <ScalarProperty Name="low_level2" ColumnName="low_level2" />
+          <ScalarProperty Name="low_level1" ColumnName="low_level1" />
+          <ScalarProperty Name="desc" ColumnName="desc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CRH_wheel">
+      <EntityTypeMapping TypeName="tycho_kcModel.CRH_wheel">
+        <MappingFragment StoreEntitySet="CRH_wheel">
+          <ScalarProperty Name="wheelPos" ColumnName="wheelPos" />
+          <ScalarProperty Name="axlePos" ColumnName="axlePos" />
+          <ScalarProperty Name="wheelNo" ColumnName="wheelNo" />
+          <ScalarProperty Name="axleNo" ColumnName="axleNo" />
+          <ScalarProperty Name="trainType" ColumnName="trainType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Detect">
+      <EntityTypeMapping TypeName="tycho_kcModel.Detect">
+        <MappingFragment StoreEntitySet="Detect">
+          <ScalarProperty Name="videoScratchNum" ColumnName="videoScratchNum" />
+          <ScalarProperty Name="M_Qr_Num" ColumnName="M_Qr_Num" />
+          <ScalarProperty Name="M_LyGd_Num" ColumnName="M_LyGd_Num" />
+          <ScalarProperty Name="procUser" ColumnName="procUser" />
+          <ScalarProperty Name="outDateTime" ColumnName="outDateTime" />
+          <ScalarProperty Name="M_Ncj_Num" ColumnName="M_Ncj_Num" />
+          <ScalarProperty Name="M_LwHd_Num" ColumnName="M_LwHd_Num" />
+          <ScalarProperty Name="M_LyHd_Num" ColumnName="M_LyHd_Num" />
+          <ScalarProperty Name="M_TmMh_Num" ColumnName="M_TmMh_Num" />
+          <ScalarProperty Name="M_LJ_Num" ColumnName="M_LJ_Num" />
+          <ScalarProperty Name="scratchNum" ColumnName="scratchNum" />
+          <ScalarProperty Name="scratchLevel1Num" ColumnName="scratchLevel1Num" />
+          <ScalarProperty Name="scratchLevel2Num" ColumnName="scratchLevel2Num" />
+          <ScalarProperty Name="scratchLevel3Num" ColumnName="scratchLevel3Num" />
+          <ScalarProperty Name="AxleNum" ColumnName="AxleNum" />
+          <ScalarProperty Name="IsTypical" ColumnName="IsTypical" />
+          <ScalarProperty Name="wheelSizeB" ColumnName="wheelSizeB" />
+          <ScalarProperty Name="wheelSize" ColumnName="wheelSize" />
+          <ScalarProperty Name="isValid" ColumnName="isValid" />
+          <ScalarProperty Name="greenWheelNum" ColumnName="greenWheelNum" />
+          <ScalarProperty Name="blueWheelNum" ColumnName="blueWheelNum" />
+          <ScalarProperty Name="yellowWheelNum" ColumnName="yellowWheelNum" />
+          <ScalarProperty Name="redWheelNum" ColumnName="redWheelNum" />
+          <ScalarProperty Name="arrayBTemp" ColumnName="arrayBTemp" />
+          <ScalarProperty Name="arrayATemp" ColumnName="arrayATemp" />
+          <ScalarProperty Name="liquidTemp" ColumnName="liquidTemp" />
+          <ScalarProperty Name="temperature" ColumnName="temperature" />
+          <ScalarProperty Name="waterTemp" ColumnName="waterTemp" />
+          <ScalarProperty Name="outSpeed" ColumnName="outSpeed" />
+          <ScalarProperty Name="inSpeed" ColumnName="inSpeed" />
+          <ScalarProperty Name="isView" ColumnName="isView" />
+          <ScalarProperty Name="bugNum" ColumnName="bugNum" />
+          <ScalarProperty Name="engineDirection" ColumnName="engineDirection" />
+          <ScalarProperty Name="engBNum" ColumnName="engBNum" />
+          <ScalarProperty Name="engNum" ColumnName="engNum" />
+          <ScalarProperty Name="testDateTime" ColumnName="testDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProfileDetectResult">
+      <EntityTypeMapping TypeName="tycho_kcModel.ProfileDetectResult">
+        <MappingFragment StoreEntitySet="ProfileDetectResult">
+          <ScalarProperty Name="Level_LjCha_Bz" ColumnName="Level_LjCha_Bz" />
+          <ScalarProperty Name="Level_LjCha_Che" ColumnName="Level_LjCha_Che" />
+          <ScalarProperty Name="Level_LjCha_ZXJ" ColumnName="Level_LjCha_ZXJ" />
+          <ScalarProperty Name="Level_LjCha_Zhou" ColumnName="Level_LjCha_Zhou" />
+          <ScalarProperty Name="Level_qr" ColumnName="Level_qr" />
+          <ScalarProperty Name="Level_lygd" ColumnName="Level_lygd" />
+          <ScalarProperty Name="Level_ncj" ColumnName="Level_ncj" />
+          <ScalarProperty Name="Level_lwhd" ColumnName="Level_lwhd" />
+          <ScalarProperty Name="Level_lyhd" ColumnName="Level_lyhd" />
+          <ScalarProperty Name="Level_tmmh" ColumnName="Level_tmmh" />
+          <ScalarProperty Name="Level_lj" ColumnName="Level_lj" />
+          <ScalarProperty Name="xmlFile" ColumnName="xmlFile" />
+          <ScalarProperty Name="LjCha_Bz" ColumnName="LjCha_Bz" />
+          <ScalarProperty Name="LjCha_Che" ColumnName="LjCha_Che" />
+          <ScalarProperty Name="LjCha_ZXJ" ColumnName="LjCha_ZXJ" />
+          <ScalarProperty Name="LjCha_Zhou" ColumnName="LjCha_Zhou" />
+          <ScalarProperty Name="Ncj" ColumnName="Ncj" />
+          <ScalarProperty Name="QR" ColumnName="QR" />
+          <ScalarProperty Name="LwHd2" ColumnName="LwHd2" />
+          <ScalarProperty Name="LwHd" ColumnName="LwHd" />
+          <ScalarProperty Name="LyGd" ColumnName="LyGd" />
+          <ScalarProperty Name="LyHd" ColumnName="LyHd" />
+          <ScalarProperty Name="TmMh" ColumnName="TmMh" />
+          <ScalarProperty Name="Lj" ColumnName="Lj" />
+          <ScalarProperty Name="wheelNo" ColumnName="wheelNo" />
+          <ScalarProperty Name="axleNo" ColumnName="axleNo" />
+          <ScalarProperty Name="testDateTime" ColumnName="testDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProfileDetectResult_real">
+      <EntityTypeMapping TypeName="tycho_kcModel.ProfileDetectResult_real">
+        <MappingFragment StoreEntitySet="ProfileDetectResult_real">
+          <ScalarProperty Name="LwHd2_AVG" ColumnName="LwHd2_AVG" />
+          <ScalarProperty Name="Lj_AVG" ColumnName="Lj_AVG" />
+          <ScalarProperty Name="Lj_user" ColumnName="Lj_user" />
+          <ScalarProperty Name="carNo" ColumnName="carNo" />
+          <ScalarProperty Name="carPos" ColumnName="carPos" />
+          <ScalarProperty Name="pos" ColumnName="pos" />
+          <ScalarProperty Name="xmlFile" ColumnName="xmlFile" />
+          <ScalarProperty Name="LjCha_Bz" ColumnName="LjCha_Bz" />
+          <ScalarProperty Name="LjCha_Che" ColumnName="LjCha_Che" />
+          <ScalarProperty Name="LjCha_ZXJ" ColumnName="LjCha_ZXJ" />
+          <ScalarProperty Name="LjCha_Zhou" ColumnName="LjCha_Zhou" />
+          <ScalarProperty Name="Ncj" ColumnName="Ncj" />
+          <ScalarProperty Name="QR" ColumnName="QR" />
+          <ScalarProperty Name="LwHd2" ColumnName="LwHd2" />
+          <ScalarProperty Name="LwHd" ColumnName="LwHd" />
+          <ScalarProperty Name="LyGd" ColumnName="LyGd" />
+          <ScalarProperty Name="LyHd" ColumnName="LyHd" />
+          <ScalarProperty Name="TmMh" ColumnName="TmMh" />
+          <ScalarProperty Name="Lj" ColumnName="Lj" />
+          <ScalarProperty Name="wheelNo" ColumnName="wheelNo" />
+          <ScalarProperty Name="axleNo" ColumnName="axleNo" />
+          <ScalarProperty Name="testDateTime" ColumnName="testDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TrainType">
+      <EntityTypeMapping TypeName="tycho_kcModel.TrainType">
+        <MappingFragment StoreEntitySet="TrainType">
+          <ScalarProperty Name="format" ColumnName="format" />
+          <ScalarProperty Name="trainNoTo" ColumnName="trainNoTo" />
+          <ScalarProperty Name="trainNoFrom" ColumnName="trainNoFrom" />
+          <ScalarProperty Name="trainType1" ColumnName="trainType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="CopyCarNoDestSource" FunctionName="tycho_kcModel.Store.CopyCarNoDestSource" />
+    <FunctionImportMapping FunctionImportName="Profile" FunctionName="tycho_kcModel.Store.Profile" />
+    <FunctionImportMapping FunctionImportName="proc_BatchDatafillByLastTime" FunctionName="tycho_kcModel.Store.proc_BatchDatafillByLastTime" />
+    <EntitySetMapping Name="CarList">
+      <EntityTypeMapping TypeName="tycho_kcModel.CarList">
+        <MappingFragment StoreEntitySet="CarList">
+          <ScalarProperty Name="direction" ColumnName="direction" />
+          <ScalarProperty Name="carNo2" ColumnName="carNo2" />
+          <ScalarProperty Name="carNo" ColumnName="carNo" />
+          <ScalarProperty Name="posNo" ColumnName="posNo" />
+          <ScalarProperty Name="testDateTime" ColumnName="testDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
